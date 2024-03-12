@@ -2,6 +2,9 @@ import os
 import requests
 from dotenv import load_dotenv
 
+#setup global variables
+baseUrl = 'https://web-admin-portal-ahww6352rclse.azurewebsites.net'
+
 #load environment variables from .env file
 load_dotenv()
 
@@ -38,12 +41,29 @@ def getToken ():
         print(f"Error making API call. Status code: {response.status_code}")
         print(response.text)
 
-def callEndpoint():
-    pass
+def callEndpoint(epUrl, bearer, params):
+    url = baseUrl + epUrl
+    headers = {
+        "Authorization": f"Bearer {bearer}",
+        "accept": "application/json"
+    }
+    params = params
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        #print("API response data:", data)
+        return data
+    else:
+        print(f"Error making API call. Status code: {response.status_code}")
+        print(response.text)
 
 def evalResults():
     pass
 
 bearer = getToken()
 print (bearer['access_token'])
+bearer = bearer['access_token']
 
+accounts = callEndpoint('/rest-api/v1/accounts', bearer, '')
+print (accounts)
