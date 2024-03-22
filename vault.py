@@ -13,8 +13,8 @@ def getSecret():
     tenantId = os.environ['spTenantId']
     clientSecret = os.environ['spSecret']
     vaultURL = os.environ['vaultURL']
-
     secretName = 'nmmApiSecret'
+
     #initialize credentials
     credential = ClientSecretCredential(
         client_id=clientId,
@@ -26,10 +26,7 @@ def getSecret():
     secret_client = SecretClient(vault_url=vaultURL, credential=credential)
 
     # Retrieve a secret by name
-    retrieved_secret = secret_client.get_secret(secretName)
+    retrieved_secret = secret_client.get_secret(secretName)    
 
-    # Print the secret details
-    print(f"Secret Name: {retrieved_secret.name}")
-    print(f"Secret Value: {retrieved_secret.value}")
-
+    #send the value back to the function caller
     return retrieved_secret.value
