@@ -1,7 +1,7 @@
 # Advanced-Live-Training---Nerdio-API
 <Carl, create some text I can put in here that is a marketing message that would encourage others to join us>
 
-# Download latest version of python
+# Download latest version of python - recommend 3.12.X or 3.11.9
 https://www.python.org/downloads/
 
 # Adding libraries to your python install
