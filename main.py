@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from vault import getSecret
 
 #setup global variables
-baseUrl = 'https://web-admin-portal-ahww6352rclse.azurewebsites.net'
+baseUrl = 'https://web-admin-portal-bqci3klofchas.azurewebsites.net/'
 
 #load environment variables from .env file
 load_dotenv()
